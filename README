@@ -1,0 +1,74 @@
+########################################################################
+                 _________
+                /___   ___\                   ______
+                    | |                      /  __  \
+   ________         | |         ________    |  /  \_/
+  /   __   \        | |        /   __   \   | |           _______
+ |   /  \   |       | |       |   /  \   |  | |          /  ___  \
+ |  |    |  |       | |       |  |    |  |  | |         |  /   \  |
+ |  |    |  |    ___| |___    |  |    |  |  |  \____    |  \___/  |
+  \/      \/    \_________/    \/      \/   |  _____\    \_______/
+                                            | |
+                                            | |
+                                            | |
+                                             \|
+                                             
+########################################################################
+
+1. WHAT IS nInfo?
+=================
+    nInfo  is a  suite  of libraries  designed to  retrieve a  great  range  of 
+information  of the underlying  operating system,  hardware,  C implementation, 
+file system, etc...
+    This allows you to  write cross-platform software,  and yet have sufficient
+information about the platform being used to make optimizations.
+
+2. COMPONENTS OF nInfo
+======================
+    nInfo consists of several individual libraries,  each providing information
+about one specific component.
+
+  * osinfo: Information about  the operating system,  its version, the version
+            of several installed components,  the distributor, standards compa-
+            tibility, package management methods, ...
+  * hwinfo: Information  about  the type,  brand, and status  of the  hardware,
+            methods for reading  from several input devices and writing to out-
+            put devices.
+  * fsinfo: Information  about the  type and  the capabilities  of the  various
+            file systems present on a system.
+  * ccinfo: Information about the compiler being used (macros only).
+  * libccm: Support library  that provides macros for  defining various contai-
+  			ners, such as arrays, vectors, strings and maps.
+  			
+3. OPERATING SYSTEM SUPPORT
+===========================
+    nInfo attempts to support as many operating systems as possible. Currently,
+however, only  Windows, Mac OS X and various Linux distributions are supported.
+    To compile nInfo  from  source, you'll  need a  C90 compiler and  the CMake 
+build  system.  nInfo  strives  to be  as  compatible  with  every  compiler as 
+possible, however, it is only tested rigorously on GCC.
+
+
+4. BUILDING nInfo
+=================
+    To build nInfo, it is  sufficient to invoke following commands,  assuming a
+C compiler and CMake are set up properly:
+    
+    | cmake .
+    | make
+    
+    To install the nInfo  libraries and  headers, issue the  following command:
+    
+    | make install
+    
+5. LICENSING
+============
+    nInfo is  released under  a zlib/libpng  license. To view the  full license
+text, please see the `COPYING' file  in the root of the source directory. For a
+full list of all contributors, see the `AUTHORS' file.
+
+6. CONTACT
+==========
+    nInfo is currently part of the LibSylph project. Please see 
+http://libsylph.sourceforge.net/support for info  on contacting the developers.
+  
