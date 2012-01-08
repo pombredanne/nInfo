@@ -21,36 +21,12 @@
  *   3. This notice may not be removed or altered from any source
  *   distribution.
  *
- *  Created on: 4 jan. 2012
+ *  Created on: 6 jan. 2012
  */
 
-#ifndef CCM_ERROR_H_
-#define CCM_ERROR_H_
+#include "array.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-typedef int cc_error_t;
-
-extern cc_error_t ccerror;
-
-const cc_error_t CCENONE     = 0;
-const cc_error_t CCEOVERFLOW = 1;
-const cc_error_t CCEARG      = 2;
-
-#define cc_error_reset() ccerror = CCENONE
-
-typedef int cc_bool;
-
-#if !defined(__cplusplus) && !defined(true)
-#define true 1
-#define false 0
-#endif
-
-#ifdef __cplusplus
-}
-#endif
-
-
-#endif /* CCM_ERROR_H_ */
+CC_DEF_ARRAY(int,    arrint);
+CC_DEF_ARRAY(long,   arrlng);
+CC_DEF_ARRAY(float,  arrflt);
+CC_DEF_ARRAY(double, arrdbl);

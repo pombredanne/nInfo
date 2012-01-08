@@ -26,4 +26,4 @@
 
 include(SourcesList.txt)
 
-add_library(ccm ${LIBCCM_LIB_ALL_SRC})
+add_library(ccm ${LIBCCM_ALL_SRC})

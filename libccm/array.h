@@ -27,6 +27,9 @@
 #ifndef CCM_ARRAY_H_
 #define CCM_ARRAY_H_
 
+#include "error.h"
+#include "new.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -37,35 +40,40 @@ extern "C" {
         size_t length; \
     } cc_##Name##_t; \
     \
-    extern cc_##Name##_t* cc_##Name##_new(); \
+    extern cc_##Name##_t* cc_##Name##_new(void); \
     extern void cc_##Name##_delete(cc_##Name##_t*); \
     extern size_t cc_##Name##_len(cc_##Name##_t*); \
-    extern Type cc_##Name##_get(cc_##Name##_t*,size_t); \
-    extern void cc_##Name##_put(cc_##Name##_t*,size_t,Type)
+    extern Type cc_##Name##_get_at(cc_##Name##_t*, size_t); \
+    extern void cc_##Name##_set_at(cc_##Name##_t*, size_t, Type)
 
 #define CC_DEF_ARRAY(Type,Name) \
-    cc_##Name##_t* cc_##Name##_new() { \
-        return malloc(sizeof(cc_##Name##_t)); \
+    cc_##Name##_t* cc_##Name##_new(void) { \
+        /* TODO */ \
     } \
     \
-    void cc_##Name##_delete(cc_##Name##_t* p) { \
-        free(p); \\
+    void cc_##Name##_delete(cc_##Name##_t* ccthis) { \
+        /* TODO */ \
     } \
     \
-    size_t cc_##Name##_len(cc_##Name##_t* p) { \
+    size_t cc_##Name##_len(cc_##Name##_t* ccthis) { \
+        cc_error_reset(); \
+        \
         return p->length; \
     } \
-    Type cc_##Name##_get(cc_##Name##_t*,size_t) { \
+    Type cc_##Name##_get_at(cc_##Name##_t* ccthis, size_t i) { \
         /* TODO */ \
     } \
-    void cc_##Name##_put(cc_##Name##_t*,size_t,Type) { \
+    \
+    void cc_##Name##_set_at(cc_##Name##_t* ccthis, size_t i, Type t) { \
         /* TODO */ \
-    }
+    } \
+    \
+    extern void cc__unused(void)
 
-C_DEC_ARRAY(int,    arrint);
-C_DEC_ARRAY(long,   arrlng);
-C_DEC_ARRAY(float,  arrflt);
-C_DEC_ARRAY(double, arrdbl);
+CC_DEC_ARRAY(int,    arrint);
+CC_DEC_ARRAY(long,   arrlng);
+CC_DEC_ARRAY(float,  arrflt);
+CC_DEC_ARRAY(double, arrdbl);
 
 #ifdef __cplusplus
 } // extern "C"
