@@ -26,4 +26,4 @@
 
 include(SourcesList.txt)
 
-add_library(fsinfo ${FSINFO_ALL_SRC})
+# add_library(fsinfo ${FSINFO_ALL_SRC})

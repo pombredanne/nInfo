@@ -30,7 +30,7 @@
 PROJECT="nInfo"
 PROJECT_LC=$(echo $PROJECT | tr [A-Z] [a-z])
 ROOTDIR="nInfo"
-SRCDIRS=( 'libccm' )
+SRCDIRS=( 'libccm' 'osinfo' 'fsinfo' 'bin/osinfo' )
 
 log() {
     echo $@ >&2
@@ -83,7 +83,7 @@ do-cmake() {
         echo >> SourcesList.txt
         echo "SET ( ${SRCNAME}_ALL_SRC " >> SourcesList.txt
     
-        for x in `find * | grep '\.cpp$'`; do
+        for x in `find * | egrep '\.(c|cpp)$'`; do
             echo -n "$x " >> SourcesList.txt
         done
 

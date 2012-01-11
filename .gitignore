@@ -37,7 +37,7 @@ docs/latex/**
 
 # CMake generated files
 CMakeCache.txt
-CMakeFiles/**
+CMakeFiles
 Makefile
 cmake_install.cmake
 build/**

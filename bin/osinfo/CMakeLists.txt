@@ -24,15 +24,8 @@
 
 #########################################################################
 
-cmake_minimum_required(VERSION 2.6)
-project(NINFO)
+include(SourcesList.txt)
 
-if(CMAKE_COMPILER_IS_GNUCC)
-    add_definitions(-ansi -pedantic -Wall -Werror)
-endif(CMAKE_COMPILER_IS_GNUCC)
-
-add_subdirectory(libccm)
-add_subdirectory(osinfo)
-add_subdirectory(fsinfo)
-
-add_subdirectory(bin/osinfo)
+add_executable(osinfo.bin ${OSINFO_BIN_ALL_SRC})
+target_link_libraries(osinfo.bin osinfo)
+include_directories(${NINFO_SOURCE_DIR})
