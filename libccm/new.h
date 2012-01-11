@@ -29,6 +29,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define ccnew(T) T* ccthis = calloc(1, sizeof(T));
 

@@ -26,4 +26,4 @@
 
 #include "error.h"
 
-cc_error_t ccerror = CCENONE;
+cc_error_t ccerror = 0;

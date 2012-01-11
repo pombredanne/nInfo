@@ -41,14 +41,46 @@ extern "C" {
     } cc_##Name##_t; \
     \
     extern cc_##Name##_t* cc_##Name##_new(void); \
+    extern cc_##Name##_t* cc_##Name##_new_from(Type*, size_t); \
+    extern cc_##Name##_t* cc_##Name##_new_len(size_t); \
+    extern cc_##Name##_t* cc_##Name##_new_copy(cc_##Name##_t*); \
     extern void cc_##Name##_delete(cc_##Name##_t*); \
     extern size_t cc_##Name##_len(cc_##Name##_t*); \
     extern Type cc_##Name##_get_at(cc_##Name##_t*, size_t); \
-    extern void cc_##Name##_set_at(cc_##Name##_t*, size_t, Type)
+    extern void cc_##Name##_set_at(cc_##Name##_t*, size_t, Type); \
+    extern Type* cc_##Name##_get(cc_##Name##_t*); \
+    extern void cc_##Name##_set(cc_##Name##_t*, Type*)
 
 #define CC_DEF_ARRAY(Type,Name) \
     cc_##Name##_t* cc_##Name##_new(void) { \
+        ccnew(cc_##Name##_t); \
+        cc_error_reset(); \
+        \
+        ccthis->length = 0; \
+        ccthis->data = 0; \
+        \
+        return ccthis; \
+    } \
+    \
+    cc_##Name##_t* cc_##Name##_new_from(Type* orig, size_t len) { \
+        ccnew(cc_##Name##_t); \
+        cc_error_reset(); \
+        \
+        ccthis->length = len; \
+        ccthis->data = malloc(sizeof(Type)*len); \
+        memcpy(ccthis->data, orig, sizeof(Type)*len); \
+        \
+        return ccthis; \
+    } \
+    \
+    cc_##Name##_t* cc_##Name##_new_len(size_t len) { \
         /* TODO */ \
+        return 0; \
+    } \
+    \
+    cc_##Name##_t* cc_##Name##_new_copy(cc_##Name##_t* orig) { \
+        /* TODO */ \
+        return 0; \
     } \
     \
     void cc_##Name##_delete(cc_##Name##_t* ccthis) { \
@@ -58,10 +90,12 @@ extern "C" {
     size_t cc_##Name##_len(cc_##Name##_t* ccthis) { \
         cc_error_reset(); \
         \
-        return p->length; \
+        return ccthis->length; \
     } \
+    \
     Type cc_##Name##_get_at(cc_##Name##_t* ccthis, size_t i) { \
         /* TODO */ \
+        return 0; \
     } \
     \
     void cc_##Name##_set_at(cc_##Name##_t* ccthis, size_t i, Type t) { \

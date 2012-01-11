@@ -36,7 +36,9 @@ cc_string_t* cc_string_new(void) {
     /* Initialize to empty string */
     ccthis->length = 0;
     ccthis->data = malloc(1);
-    data[0] = '\0';
+    ccthis->data[0] = '\0';
+
+    return ccthis;
 }
 
 cc_string_t* cc_string_new_from(const char* str) {
@@ -46,7 +48,9 @@ cc_string_t* cc_string_new_from(const char* str) {
     /* Copy string */
     ccthis->length = strlen(str);
     ccthis->data = malloc(ccthis->length + 1);
-    strcpy(data, str);
+    strcpy(ccthis->data, str);
+
+    return ccthis;
 }
 
 cc_string_t* cc_string_new_copy(cc_string_t* orig) {
@@ -55,7 +59,9 @@ cc_string_t* cc_string_new_copy(cc_string_t* orig) {
 
     ccthis->length = orig->length;
     ccthis->data = malloc(ccthis->length + 1);
-    strcpy(data, orig->data);
+    strcpy(ccthis->data, orig->data);
+
+    return ccthis;
 }
 
 void cc_string_delete(cc_string_t* ccthis) {
@@ -127,6 +133,15 @@ void cc_string_set_at(cc_string_t* ccthis, size_t i, char c) {
 }
 
 
+void cc_string_append(cc_string_t* ccthis, cc_string_t* rhs) {
+    /* TODO */
+}
+
+void cc_string_prepend(cc_string_t* ccthis, cc_string_t* rhs) {
+    /* TODO */
+}
+
+
 cc_string_t* cc_strerror(cc_error_t error) {
     cc_string_t* to_return = 0;
     cc_error_reset();
@@ -142,7 +157,7 @@ cc_string_t* cc_strerror(cc_error_t error) {
         to_return = cc_string_new_from(_("Invalid argument"));
         break;
     default:
-        errno = CCEARG;
+        ccerror = CCEARG;
     }
 
     return to_return;
@@ -154,7 +169,7 @@ void cc_perror(const char* pname) {
 
     cerr = cc_strerror(ccerror);
     printf("%s: %s\n", pname, cerr->data);
-    cc_string_delete(ccerror);
+    cc_string_delete(cerr);
 }
 
 CC_DEF_ARRAY(cc_string_t*, arrstr);

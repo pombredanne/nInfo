@@ -35,9 +35,10 @@ typedef int cc_error_t;
 
 extern cc_error_t ccerror;
 
-const cc_error_t CCENONE     = 0;
-const cc_error_t CCEOVERFLOW = 1;
-const cc_error_t CCEARG      = 2;
+#define CCENONE             0
+#define CCEOVERFLOW         1
+#define CCEARG              2
+#define CCESTATE            3
 
 #define cc_error_reset() ccerror = CCENONE
 

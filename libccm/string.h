@@ -30,7 +30,7 @@
 #include "error.h"
 #include "array.h"
 
-// TODO: i18n
+/* TODO: i18n */
 #define  _(X) (X)
 #define N_(X) (X)
 
@@ -57,6 +57,9 @@ extern const char* cc_string_get(cc_string_t*);
 
 extern char cc_string_get_at(cc_string_t*, size_t);
 extern void cc_string_set_at(cc_string_t*, size_t, char);
+
+extern void cc_string_append(cc_string_t*, cc_string_t*);
+extern void cc_string_prepend(cc_string_t*, cc_string_t*);
 
 extern cc_string_t* cc_strerror(cc_error_t);
 extern void cc_perror(const char*);
