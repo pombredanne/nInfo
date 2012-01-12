@@ -26,6 +26,6 @@
 
 include(SourcesList.txt)
 
-add_library(ccm ${LIBCCM_ALL_SRC})
+add_library(ccm SHARED ${LIBCCM_ALL_SRC})
 install( TARGETS ccm RUNTIME DESTINATION bin LIBRARY DESTINATION lib 
         ARCHIVE DESTINATION lib)

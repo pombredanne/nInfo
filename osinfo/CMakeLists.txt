@@ -26,6 +26,6 @@
 
 include(SourcesList.txt)
 
-add_library(osinfo ${OSINFO_ALL_SRC})
+add_library(osinfo SHARED ${OSINFO_ALL_SRC})
 install( TARGETS osinfo RUNTIME DESTINATION bin LIBRARY DESTINATION lib 
         ARCHIVE DESTINATION lib)

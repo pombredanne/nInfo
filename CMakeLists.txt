@@ -37,6 +37,11 @@ add_subdirectory(fsinfo)
 
 add_subdirectory(bin/osinfo)
 
-install( DIRECTORY . DESTINATION include FILES_MATCHING PATTERN "*.h"
-        PATTERN "CMakeFiles" EXCLUDE PATTERN "build" EXCLUDE
-        PATTERN "install" EXCLUDE )
+install( DIRECTORY libccm DESTINATION include FILES_MATCHING 
+        PATTERN "*.h" )
+install( DIRECTORY osinfo DESTINATION include FILES_MATCHING 
+        PATTERN "*.h" )
+install( DIRECTORY ccinfo DESTINATION include FILES_MATCHING 
+        PATTERN "*.h" )
+install( DIRECTORY fsinfo DESTINATION include FILES_MATCHING 
+        PATTERN "*.h" )
