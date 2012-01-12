@@ -27,5 +27,7 @@
 include(SourcesList.txt)
 
 # add_library(fsinfo SHARED ${FSINFO_ALL_SRC})
+# target_link_libraries(fsinfo ccm)
+
 # install( TARGETS fsinfo RUNTIME DESTINATION bin LIBRARY DESTINATION lib 
 #         ARCHIVE DESTINATION lib)

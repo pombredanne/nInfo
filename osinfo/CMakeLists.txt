@@ -27,5 +27,7 @@
 include(SourcesList.txt)
 
 add_library(osinfo SHARED ${OSINFO_ALL_SRC})
+target_link_libraries(osinfo ccm)
+
 install( TARGETS osinfo RUNTIME DESTINATION bin LIBRARY DESTINATION lib 
         ARCHIVE DESTINATION lib)

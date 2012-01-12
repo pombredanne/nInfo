@@ -25,7 +25,15 @@
  */
 
 #include "osinfo.h"
+#include "../ccinfo/guessos.h"
+
+#ifdef CC_OS_WINDOWS
 
 cc_bool os_windows_is_nt(void) {
     return os_windows_version_id() > 10000;
 }
+
+int os_windows_version_id(void ) {
+}
+
+#endif /* CC_OS_WINDOWS */
