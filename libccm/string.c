@@ -83,7 +83,7 @@ size_t cc_string_len(cc_string_t* ccthis) {
 cc_bool cc_string_inbounds(cc_string_t* ccthis, size_t i) {
     cc_error_reset();
 
-    return i > ccthis->length ? true : false;
+    return i < ccthis->length;
 }
 
 void cc_string_copy(cc_string_t* ccthis, cc_string_t* orig) {
