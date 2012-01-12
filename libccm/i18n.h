@@ -21,50 +21,22 @@
  *   3. This notice may not be removed or altered from any source
  *   distribution.
  *
- *  Created on: 4 jan. 2012
+ *  Created on: 12 jan. 2012
  */
 
-#ifndef CCM_STRING_H_
-#define CCM_STRING_H_
-
-#include "error.h"
-#include "array.h"
-#include "i18n.h"
+#ifndef CCM_I18N_H_
+#define CCM_I18N_H_
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-typedef struct cc_string_t {
-    size_t length;
-    char* data;
-} cc_string_t;
-
-extern cc_string_t* cc_string_new(void);
-extern cc_string_t* cc_string_new_from(const char*);
-extern cc_string_t* cc_string_new_copy(cc_string_t*);
-extern void cc_string_delete(cc_string_t*);
-
-extern size_t cc_string_len(cc_string_t*);
-extern cc_bool cc_string_inbounds(cc_string_t*, size_t);
-
-extern void cc_string_copy(cc_string_t*, cc_string_t*);
-extern void cc_string_set(cc_string_t*, const char*);
-extern const char* cc_string_get(cc_string_t*);
-
-extern char cc_string_get_at(cc_string_t*, size_t);
-extern void cc_string_set_at(cc_string_t*, size_t, char);
-
-extern void cc_string_append(cc_string_t*, cc_string_t*);
-extern void cc_string_prepend(cc_string_t*, cc_string_t*);
-
-extern cc_string_t* cc_strerror(cc_error_t);
-extern void cc_perror(const char*);
-
-CC_DEC_ARRAY(cc_string_t*, arrstr);
+    /* TODO: i18n */
+    #define  _(X) (X)
+    #define N_(X) (X)
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* CCM_STRING_H_ */
+#endif /* CCM_I18N_H_ */

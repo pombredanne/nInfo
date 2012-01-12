@@ -49,6 +49,9 @@ typedef int cc_bool;
 #define false 0
 #endif
 
+extern const char* cc_strbool(cc_bool);
+extern const char* cc_strbool_yn(cc_bool);
+
 #ifdef __cplusplus
 }
 #endif

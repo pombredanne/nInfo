@@ -25,5 +25,14 @@
  */
 
 #include "error.h"
+#include "i18n.h"
 
 cc_error_t ccerror = 0;
+
+const char* cc_strbool(cc_bool b) {
+    return b ? _("true") : _("false");
+}
+
+const char* cc_strbool_yn(cc_bool b) {
+    return b ? _("Yes") : _("No");
+}
