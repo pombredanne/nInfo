@@ -38,4 +38,5 @@ add_subdirectory(fsinfo)
 add_subdirectory(bin/osinfo)
 
 install( DIRECTORY . DESTINATION include FILES_MATCHING PATTERN "*.h"
-        PATTERN "CMakeFiles" EXCLUDE )
+        PATTERN "CMakeFiles" EXCLUDE PATTERN "build" EXCLUDE
+        PATTERN "install" EXCLUDE )
