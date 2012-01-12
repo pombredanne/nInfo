@@ -29,3 +29,5 @@ include(SourcesList.txt)
 add_executable(osinfo.bin ${OSINFO_BIN_ALL_SRC})
 target_link_libraries(osinfo.bin osinfo)
 include_directories(${NINFO_SOURCE_DIR})
+
+install( PROGRAMS osinfo.bin DESTINATION bin RENAME osinfo )
